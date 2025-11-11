@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>PyCord Plus</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div id="login-view" class="center">
+    <div class="card">
+      <h1>Welcome to PyCord Plus</h1>
+      <p>Pick a display name to join.</p>
+      <form id="login-form">
+        <input id="username" type="text" maxlength="20" placeholder="Your name" required />
+        <button type="submit">Enter</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="app-view" class="layout hidden">
+    <aside class="servers">
+      <div id="servers" class="server-list"></div>
+    </aside>
+
+    <aside class="channels">
+      <div class="channels-header">
+        <span id="serverName">Server</span>
+      </div>
+      <div id="channelList" class="channel-list"></div>
+      <div class="me-bar">
+        <div class="me">
+          <img id="meAvatar" class="avatar-img" src="" alt="" />
+          <span id="meName">me</span>
+        </div>
+        <div class="me-actions">
+          <button id="avatarBtn" title="Change avatar">🖼️</button>
+          <button id="logoutBtn" title="Logout">⎋</button>
+        </div>
+      </div>
+    </aside>
+
+    <main class="chat">
+      <div class="chat-header">
+        <span id="currentChannelName">#general</span>
+      </div>
+      <div id="messages" class="messages"></div>
+      <div id="typing" class="typing hidden">Someone is typing...</div>
+      <div class="input-area">
+        <div class="toolbar">
+          <button id="emojiBtn" title="Emoji">😀</button>
+          <button id="gifBtn" title="GIFs">GIF</button>
+          <label class="uploadBtn" title="Upload">
+            ＋<input id="fileInput" type="file" multiple />
+          </label>
+          <div id="pendingAttachments" class="pending hidden"></div>
+        </div>
+        <textarea id="messageInput" placeholder="Message #general" rows="1"></textarea>
+      </div>
+    </main>
+
+    <aside class="members">
+      <div class="members-header">Online</div>
+      <div id="members" class="member-list"></div>
+    </aside>
+  </div>
+
+  <!-- Emoji picker -->
+  <div id="emojiPicker" class="emoji-picker hidden">
+    <input id="emojiSearch" type="text" placeholder="Search emoji..." />
+    <div id="emojiGrid" class="emoji-grid"></div>
+  </div>
+
+  <!-- GIF modal -->
+  <div id="gifModal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <input id="gifSearch" type="text" placeholder="Search GIFs..." />
+        <button id="gifClose">✕</button>
+      </div>
+      <div id="gifGrid" class="gif-grid"></div>
+    </div>
+  </div>
+
+  <!-- Avatar dialog -->
+  <div id="avatarModal" class="modal hidden">
+    <div class="modal-content small">
+      <div class="modal-header">
+        <span>Change Avatar</span>
+        <button id="avatarClose">✕</button>
+      </div>
+      <div class="modal-body">
+        <input id="avatarInput" type="file" accept="image/*" />
+        <button id="avatarUpload">Upload</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
